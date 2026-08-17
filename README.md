@@ -1,6 +1,6 @@
 # Minimal Variance Investment Portfolio Optimization
 
-This project aims to find optimal train and test period for weight of holding in investment portfolio, using minimal variance method. The effect of some economic crisis on holding strategy also shown in our results.
+This project aims to find optimal train and test period for weight of holding in investment portfolio, using minimal variance method. The effect of some economic crises on holding strategy is also shown in our results.
 	
 This project is for educational purposes only and does not constitute investment advice.
 
