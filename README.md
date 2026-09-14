@@ -17,9 +17,9 @@ All data process on **Python**, mainly using package **Pandas**, and also **Matp
 2.	Download and transform currency unit of closed value of each asset into THB. At this step, I found that the earliest date in data is 1st December 2003.
 3.	Calculate return from value of each asset.
 4.	Split train and test data set into various period, then find cost of fitting from minimal variance method. The periods are 1 month (30 days), 3 months (90 days), 1 year (365 days), 3 years (1095 days), and 10 years (3650 days).
-  - The train and test data set are adjacent in time.
-  - When multiple train-test pair are possible, cost of fitting and mean return will be averaged.
-  - Weight or proportion of each asset has both allow negative weight and not allow negative cases.
+    - The train and test data set are adjacent in time.
+    - When multiple train-test pair are possible, cost of fitting and mean return will be averaged.
+    - Weight or proportion of each asset has both allow negative weight and not allow negative cases.
 5.  Plot heat map of cost of fitting against each duration of training and testing.
 
 ## Results
