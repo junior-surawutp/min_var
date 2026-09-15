@@ -10,6 +10,8 @@ One way to increase our wealth passively is in investment. The problem apart fro
 
 In order to find a good strategy on holding asset, we need data from the past to find mean return and covariance between assets, and also test it with data future, which is the same as train-test splitting in data. Even though, more training data tend to provide more accuracy, so more favorable, it also included data during economic crisis which does not happen often. I wonder if this affects accuracy on the model of mean return and covariance. So, in this project, I’m going to find optimal period of train and test data for accurate outcome of mean return, and also investigate effect of economic crisis if it is included in train data.
 
+I use minimal variance optimization to find optimal period of train and test data, and also the least possible fluctuation we can exposed to. Then, I further apply mean-variance optimization on this optimal condition, to find whether trading off with more target return with exposed more fluctuation worth doing or not.
+
 ## Methodology
 
 All data process on **Python**, mainly using package **Pandas**, and also **Matplotlib** for plotting graph.
@@ -69,6 +71,28 @@ In terms of mean return, the returns predicted from train data are a slightly po
 <img src="picture/mean_ex.jpg"/>
 
 The large fluctuation during economic crisis also happened in some results on other train and test period. However, in this case, train period is 1 year, and test period is 3 months, 2008 economic crisis is pronounced but not COVID pandemic. The large fluctuation during economic crisis may not show as pronounced in other combinations of train and test period.
+
+### Mean-Variance Optimization
+
+In these results, I use train period of 10 years, and test period of 1 month, which is optimal combination. The following graphs came from when train period end at 6 July 2026 and test period start on the next day. This is the latest part in data. Unlike the averaged approach in results section 1, this section uses the most recent window only, since a practical investor would want portfolio weights based on current market conditions rather than a historical average. By using mean-variance optimization, efficient frontier from train and test periods, both allow and not allow negative weight are as follows:
+
+<img src="picture/efficient_frontier.png"/>
+
+We see that when negative is not allowed, the efficient frontier curve is broken, not smooth curve. Furthermore, the efficient frontier curve also changed in time, between train and test period.
+
+The cost of fitting of minimal variance case is also standard deviation of return. The average cost of fitting of test data is 0.008, which is consistent with result on efficient frontier curve. In the upper (higher target return) portion, train and test frontiers stay close in standard deviation, suggesting that reaching for higher target return costs a similar amount of extra risk whether estimated from train or test data. In the lower portion, however, the frontiers diverge more, meaning risk estimates near minimum-variance are less stable between train and test. Seemingly, trading off between more target return with exposed to more fluctuation may worth trying because the standard deviation of upper part of efficient frontier of both train and test periods are on the similar range.
+
+Weight adjustment of each asset according to each target mean return is as follows:  
+
+<img src="picture/weight_efficient.png"/>
+
+The weight of each asset varied linearly in negative weight allowed case. The weight of assets with less mean return and less standard (such as SPY) deviation decrease, and replaced by assets with more mean return but also more standard deviation (such as QQQ).
+
+Weight adjustment of each asset in case that negative weight is not allowed is as follows:
+
+<img src="picture/weight_efficient2.png"/>
+
+How weigh varied when target mean return change is not straight line as the previous case, because weight cut off at zeros and normalization. The broken point in efficient frontier is around target mean return 0.0004, which is the same point where weight of SPY reduced to zeros, and QQQ take its place, and both assets have significant difference in slope.
 
 ## Conclusion
 
