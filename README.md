@@ -100,4 +100,4 @@ The results prefer long training period and shorter testing period, means use lo
 
 ## Author
 
-I’m Surawut Pawutinan, and my nickname is Junior. This is my [LinkedIn](https://www.linkedin.com/in/surawut-paw-junior/), and my [GitHub](https://github.com/junior-surawutp).
+I’m Surawut Pawutinan, and my nickname is Junior. This is my [LinkedIn](https://www.linkedin.com/in/surawut-paw-junior/), and my [GitHub](https://github.com/junior-surawutp). My e-mail is surawut.paw@gmail.com.
